@@ -4,8 +4,6 @@ require 'open-uri' #to fetch the data from the URL to then be parsed by JSON
 class HomeController < ApplicationController
 
 
-	before_action :set_auth
-
 	@@zipcode = 98133
 
 	def index
@@ -22,12 +20,5 @@ class HomeController < ApplicationController
 		redirect_to root_url
 	end
 
-	def profile
-	end
 
-	private
-
-	def set_auth
-		@auth = session[:omniauth] if session[:omniauth]
-	end
 end
