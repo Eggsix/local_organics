@@ -5,11 +5,14 @@ class User < ActiveRecord::Base
 	end
 
 	def self.create_user_from_omniauth(auth)
-		create[
+		fb_uid = auth['uid']
+		self.create(
 			provider: auth['provider'],
 			uid: auth['uid'],
-			name: auth['info']['name']
-		]
+			name: auth['info']['name'],
+			email: auth['info']['email'],
+			profile_pic: "http://graph.facebook.com/#{fb_uid}/picture?type=square"
+		)
 	end
 
 	# def self.from_omniauth(auth)
