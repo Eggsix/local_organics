@@ -18,6 +18,15 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'omniauth-facebook'
 # twitter login feature
 gem 'omniauth-twitter'
+
+# google maps
+gem 'gmaps4rails'
+gem 'area'
+
+#A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more.
+gem "nifty-generators", :group => :development
+# json for api integration
+gem 'json', '~> 1.8.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -29,6 +38,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
+
 
 
 
@@ -44,3 +54,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+gem "mocha", group: :test

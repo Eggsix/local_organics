@@ -3,10 +3,12 @@
 <head>
   <title>LocalOrganics</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= yield(:google_maps_api) if content_for?(:google_maps_api) %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %> 
 </head>
 <body>
+  
 <div id="nav">
   <div id="area_search">
     <form action="/zipcode" method="post">

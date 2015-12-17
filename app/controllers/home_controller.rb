@@ -3,7 +3,6 @@ require 'net/http' #to make a GET request
 require 'open-uri' #to fetch the data from the URL to then be parsed by JSON
 class HomeController < ApplicationController
 
-
 	@@zipcode = 98133
 
 	def index
