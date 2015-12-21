@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #home
   root "home#index"
 
-  post '/zipcode' => 'home#set_zipcode'
+  post '/search' => 'home#set_zipcode'
   #fb login
   get "auth/:provider/callback", to: "sessions#create"
   get "auth/failure", to: redirect("home#index")

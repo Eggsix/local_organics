@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-	def new
-	end
 	def create
 		auth = request.env["omniauth.auth"]
 		session[:omniauth] = auth.except('extra')
@@ -17,8 +15,4 @@ class SessionsController < ApplicationController
 		session[:omniauth] = nil
 		redirect_to root_url, notice: "SIGNED OUT"
 	end
-
-    private
-
-
 end
