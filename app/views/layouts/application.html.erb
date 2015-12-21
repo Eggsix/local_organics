@@ -11,9 +11,9 @@
   
 <div id="nav">
   <div id="area_search">
-    <form action="/zipcode" method="post">
+    <form action="/search" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="text" name="zip_code" placeholder="Enter zipcode">
+      <input type="text" name="search" placeholder="Enter zipcode">
       <input type="submit">
     </form>
   </div>

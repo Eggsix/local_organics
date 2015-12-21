@@ -21,7 +21,7 @@ gem 'omniauth-twitter'
 
 # google maps
 gem 'gmaps4rails'
-gem 'area'
+gem 'geocoder'
 
 #A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more.
 gem "nifty-generators", :group => :development
