@@ -1,0 +1,11 @@
+
+
+<h1><%= @market.name %></h1>
+
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@market.latitude},#{@market.longitude}&zoom=15&size=400x400\
+&markers=color:red%7Clabel:#{@market.name[0]}%7C#{@market.latitude},#{@market.longitude}&markers=size:tiny%7Ccolor:green%7CDelta+Junction,AK\
+,AK&key=AIzaSyCMxhjbHETbjWhuPiAXjq4vHsQQnyPrNy4" %>
+
+<p><%= @market.address %></p>
+<p><%= @market.products %></p>
+<p><%= @market.schedule %></p>

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get "auth/:provider/callback", to: "sessions#create"
   get "auth/failure", to: redirect("home#index")
   
-
+  #markets 
+  get "/markets/:id" => 'markets#show'
   #users
   get "users/:id" => "users#show"
   get 'signout', to: 'sessions#destroy', as: 'signout'

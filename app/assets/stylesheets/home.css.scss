@@ -1,3 +1,10 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#market_list {
+	vertical-align: top;
+	display: inline-block;
+	overflow: scroll;
+	height: 100vh;
+	width: 300px;
+}
+#market_map {
+	display: inline-block;
+}

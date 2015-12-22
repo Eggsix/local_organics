@@ -4,9 +4,8 @@ require 'open-uri' #to fetch the data from the URL to then be parsed by JSON
 class HomeController < ApplicationController
 
 	@@zipcode = 98133
-	@@location = Geocoder.coordinates("seattle")
 	def index
-		@location = @@location
+		@area = Geocoder.coordinates(@@zipcode)
 		@market = []
 		uri = URI("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=#{@@zipcode}")
 		res = Net::HTTP.get_response(uri)
@@ -17,13 +16,22 @@ class HomeController < ApplicationController
 			details = JSON.load(res2.body)
 			coordinates = Geocoder.coordinates(details["marketdetails"]["Address"])
 			market_name = x["marketname"].slice(4, x["marketname"].length-1)
-			@market << [market_name, coordinates, details]
+			if !Market.find_by(name: "#{market_name}")
+				market = Market.create(name: "#{market_name}", 
+							  address: "#{details['marketdetails']['Address']}", 
+							  products: "#{details['marketdetails']['Products']}", 
+							  schedule: "#{details['marketdetails']['Schedule']}",
+							  latitude: coordinates[0],
+							  longitude: coordinates[1])
+				@market << market
+			else 
+				market = Market.find_by(name: "#{market_name}")
+				@market << market
+			end
 		end
-		
 	end
 
 	def set_zipcode
-		@@location = Geocoder.coordinates(params[:search])
 		@@zipcode = params[:search]
 		redirect_to root_url
 	end
