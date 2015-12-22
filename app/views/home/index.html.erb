@@ -8,12 +8,12 @@
 
       var markers = [
           <% @market.each do |m| %>
-            ["<%= m[0] %>", <%= m[1][0]%>, <%= m[1][1]%>],
+            ["<%= m.name %>", <%= m.latitude%>, <%= m.longitude%>],
           <% end %>
       ];
 
       var mapOptions = {
-          center: new google.maps.LatLng(<%= @location[0] %>, <%= @location[1] %>),
+          center: new google.maps.LatLng(<%= @area[0] %>, <%= @area[1] %>),
         zoom: 12
       };
       var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -36,11 +36,14 @@
 </script>
 <% end %>
 
-<% @markets['results'].each do |market| %>
-	<p><%= market['marketname']%></p>
-<% end %>
-
-<div style='height: 400px; width: 800px;'>
+<div id="market_list">
+  <% @market.each do |market| %>
+    <a href="/markets/<%= market.id %>"><%= market.name %></a>
+    <p><%= market.address %></p>
+    <p><%= market.schedule %></p>
+  <% end %>
+</div>
+<div  id ="market_map"style='height: 100vh; width: 70%;'>
 	<div id="map-canvas" style='width: 100%; height: 100%;'></div>
 </div>
 
