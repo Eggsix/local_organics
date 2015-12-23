@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/markets/:id" => 'markets#show'
   #users
   get "users/:id" => "users#show"
+  patch "users/update/:id" => "users#update"
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   # get "auth/failure", to: redirect("/")
