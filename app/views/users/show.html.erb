@@ -1,7 +1,11 @@
-<h1>Hello, <%= current_user.name %></h1>
-<form action='/users/edit/<%= current_user.id %>' method='post'>
-	<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-	Current Email
-	<input type='text' name='email' placeholder='<%= @user.email %>'>
-	<input type='text' name='interest' placeholder='<%@user.interest %>'>
-</form>
+<div class='user_profile'>
+	<h1>Hello, <%= current_user.name %></h1>
+	<form action='/users/edit/<%= current_user.id %>' method='post'>
+		<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+		<p>Current Email
+		<input type='text' name='email' placeholder='<%= @user.email %>'></p>
+		Interests
+		<textarea id='user_interests' name='interest' placeholder='<%@user.interest %>' cols='30' rows='5'></textarea>
+		<p><button>Submit Changes</button><p>
+	</form>
+</div>
