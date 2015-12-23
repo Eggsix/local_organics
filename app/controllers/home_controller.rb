@@ -9,14 +9,14 @@ class HomeController < ApplicationController
 		@market = []
 		uri = URI("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=#{@@zipcode}")
 		res = Net::HTTP.get_response(uri)
-		@markets = JSON.load(res.body)
-		@markets['results'].each do |x|
+		markets = JSON.load(res.body)
+		markets['results'].each do |x|
 			uri2 = URI("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=#{x['id']}")
 			res2 = Net::HTTP.get_response(uri2)
 			details = JSON.load(res2.body)
-			coordinates = Geocoder.coordinates(details["marketdetails"]["Address"])
 			market_name = x["marketname"].slice(4, x["marketname"].length-1)
 			if !Market.find_by(name: "#{market_name}")
+				coordinates = Geocoder.coordinates(details["marketdetails"]["Address"])
 				market = Market.create(name: "#{market_name}", 
 							  address: "#{details['marketdetails']['Address']}", 
 							  products: "#{details['marketdetails']['Products']}", 

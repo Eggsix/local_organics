@@ -23,6 +23,9 @@ gem 'omniauth-twitter'
 gem 'gmaps4rails'
 gem 'geocoder'
 
+# bootstrap
+gem 'bootstrap-sass'
+
 #A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more.
 gem "nifty-generators", :group => :development
 # json for api integration
