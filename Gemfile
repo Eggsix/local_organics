@@ -56,8 +56,8 @@ gem 'hirb'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-
+gem 'ratyrate'
+gem 'devise'
 gem "mocha", group: :test
 
 gem 'figaro'

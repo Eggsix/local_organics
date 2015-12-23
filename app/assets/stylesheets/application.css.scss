@@ -27,4 +27,15 @@
 	width: 100%;
 	height: 100%;
 }
-
+#market_list {
+	color: white;
+}
+#user_interests {
+  background: url("fruits.jpg") center center no-repeat; /* This ruins default border */
+  border: 1px solid #888; 
+  resize: none;
+  background-size: 100%, 100%;
+}
+.user_profile button{
+	margin-left: 107px;
+}
