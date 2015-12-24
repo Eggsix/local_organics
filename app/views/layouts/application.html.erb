@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LocalOrganics</title>
+  <title>Local Organics</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= yield(:google_maps_api) if content_for?(:google_maps_api) %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,13 +10,6 @@
 <body>
   
 <div id="nav">
-  <div id="area_search">
-    <form action="/search" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <input type="text" name="search" placeholder="Enter zipcode">
-      <input type="submit">
-    </form>
-  </div>
   <div id="user_login">
     <a href="/">Home</a>
     <% if current_user %>

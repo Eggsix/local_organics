@@ -2,12 +2,13 @@ require 'json'
 require 'net/http' #to make a GET request
 require 'open-uri' #to fetch the data from the URL to then be parsed by JSON
 class HomeController < ApplicationController
-
-	@@zipcode = 98133
+	def home
+	end
+	
 	def index
-		@area = Geocoder.coordinates(@@zipcode)
+		@area = Geocoder.coordinates(session[:zipcode])
 		@market = []
-		uri = URI("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=#{@@zipcode}")
+		uri = URI("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=#{session[:zipcode]}")
 		res = Net::HTTP.get_response(uri)
 		markets = JSON.load(res.body)
 		markets['results'].each do |x|
@@ -32,8 +33,8 @@ class HomeController < ApplicationController
 	end
 
 	def set_zipcode
-		@@zipcode = params[:search]
-		redirect_to root_url
+		session[:zipcode] = params[:search]
+		redirect_to index_view_path
 	end
 
 

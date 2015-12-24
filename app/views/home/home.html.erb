@@ -1,0 +1,10 @@
+<div id="home_page">
+	<h1>Search Local Farmers Markets near you!</h1>
+	<div id="area_search">
+		<form action="/search" method="post">
+		  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		  <input type="text" name="search" placeholder="Enter zipcode here">
+		  <input type="submit">
+		</form>
+	</div>
+</div>

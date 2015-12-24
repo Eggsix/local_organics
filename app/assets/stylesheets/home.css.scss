@@ -8,3 +8,12 @@
 #market_map {
 	display: inline-block;
 }
+#home_page {
+	height: 100vh;
+	text-align:  center;
+	padding-top: 20%;
+	background-image: image-url("green_plant_background.jpg");
+	background-size: cover;                   
+    background-repeat:   no-repeat;
+    background-position: center center;
+}

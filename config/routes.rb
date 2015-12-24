@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   post '/rate' => 'rater#create', :as => 'rate'
   #home
-  root to: "home#index"
+  root to: "home#home"
+  get '/index_view' => 'home#index'
 
   post '/search' => 'home#set_zipcode'
   #fb login
