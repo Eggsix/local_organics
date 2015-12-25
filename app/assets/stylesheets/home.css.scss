@@ -4,6 +4,10 @@
 	overflow: scroll;
 	height: 100vh;
 	width: 300px;
+	ul li {
+		border-top: 1px solid black;
+		list-style: none;
+	}
 }
 #market_map {
 	display: inline-block;
@@ -16,4 +20,15 @@
 	background-size: cover;                   
     background-repeat:   no-repeat;
     background-position: center center;
+}
+#home_index {
+	background-color: white;
+	margin: 0 auto;
+	width: 90%;
+}
+#market_info {
+	background-color: white;
+	h1 {
+		text-align: center
+	}
 }
