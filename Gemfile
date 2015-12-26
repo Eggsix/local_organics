@@ -26,6 +26,8 @@ gem 'geocoder'
 # bootstrap
 gem 'bootstrap-sass'
 
+# simple forms rails way!
+gem 'simple_form'
 #A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more.
 gem "nifty-generators", :group => :development
 # json for api integration

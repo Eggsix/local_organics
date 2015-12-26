@@ -12,10 +12,15 @@ Rails.application.routes.draw do
   
   #markets 
   get "/markets/:id" => 'markets#show'
+
   #users
   get "users/:id" => "users#show"
   patch "users/update/:id" => "users#update"
   get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :markets do
+    resources :reviews
+  end
 
   # get "auth/failure", to: redirect("/")
   # The priority is based upon order of creation: first created -> highest priority.

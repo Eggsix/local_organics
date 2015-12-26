@@ -1,0 +1,17 @@
+#market_info {
+	margin: 0 auto;
+	width: 95%;
+	#market_reviews {
+		display: inline-block;
+		vertical-align: top;
+		ul {
+			height: 300px;
+			width: 600px;
+			overflow: scroll;
+				li {
+				list-style: none;
+				border-top: 1px solid black;
+				}
+		}	
+	}
+}

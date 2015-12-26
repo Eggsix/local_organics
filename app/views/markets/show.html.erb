@@ -3,8 +3,33 @@
 	<h1><%= @market.name %></h1>
 	<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@market.latitude},#{@market.longitude}&zoom=15&size=400x400\
 	&markers=color:red%7Clabel:#{@market.name[0]}%7C#{@market.latitude},#{@market.longitude}&markers=size:tiny%7Ccolor:green%7CDelta+Junction,AK\
-	,AK&key=AIzaSyCMxhjbHETbjWhuPiAXjq4vHsQQnyPrNy4" %>
+	,AK&key=AIzaSyCMxhjbHETbjWhuPiAXjq4vHsQQnyPrNy4", id: "market_show_map" %>
+	<div id="market_reviews">
+		<ul>
+			<% @reviews.each do |review| %>
+				<li>
+					
+					<h4><%= image_tag(review.profile_pic) %><%= review.name %></h4>
+					<p><%= review.content %></p>
+				</li>
+			<% end %>
+		</ul>
+		<% if current_user %>
+			<%= simple_form_for [@market, @review] do |f| %>
+				<%= f.input :content%>
+				<%= f.button :submit %>
+			<% end %>
+		<% end %>
+	</div>
+
+
+
 	<p><%= @market.address %></p>
 	<p><%= @market.products %></p>
 	<p><%= @market.schedule %></p>
+	
+	
+
+	
+
 </div>
