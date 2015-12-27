@@ -15,21 +15,32 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
 
 body {
 	background-image: image-url("barrel.jpg");
 	background-size: cover;                   
     background-repeat:   no-repeat;
     background-position: center center;
-    #nav 
-    {
+    #nav {
+		text-align: center;
 		background-color: #ADE8B0;
-		#user_login 
-		{
-			text-align: right;
-			padding-right: 13%;
+		#logo {
+			color: white;
+			margin: 1px;
+			font-family: 'Kaushan Script', cursive;
+    		display: inline-block;
+    		margin-right: 45%;
+    	}
+		#user_login {
+			display: inline-block;
 		}
 
+    }
+    footer {
+    	background-color: #ADE8B0;
+    	width: 100%;
+    	height: 50px;
     }
     
 }

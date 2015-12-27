@@ -1,6 +1,11 @@
 #market_info {
+	height: 100vh;
 	margin: 0 auto;
 	width: 95%;
+	padding: 10px;
+	h1 {
+		text-align: center;
+	}
 	#market_reviews {
 		display: inline-block;
 		vertical-align: top;

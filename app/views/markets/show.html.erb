@@ -7,10 +7,13 @@
 	<div id="market_reviews">
 		<ul>
 			<% @reviews.each do |review| %>
-				<li>
-					
-					<h4><%= image_tag(review.profile_pic) %><%= review.name %></h4>
+				<li>	
+					<h4><%= image_tag(review.profile_pic) %>
+						<%= link_to(review.name, user_path(review.user_id)) %></h4>
 					<p><%= review.content %></p>
+					<% if  current_user && current_user.id == review.user_id %>
+						<%= link_to "delete", "/markets/#{@market.id}/reviews/#{review.id}", :method => :delete %>
+					<% end %>						
 				</li>
 			<% end %>
 		</ul>

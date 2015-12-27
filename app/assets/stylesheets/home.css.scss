@@ -13,16 +13,17 @@
 	display: inline-block;
 }
 #home_page {
-	height: 100vh;
+	height: 100%;
 	text-align:  center;
-	padding-top: 20%;
+	padding-top: 22%;
+	padding-bottom: 20%;
 	background-image: image-url("green_plant_background.jpg");
 	background-size: cover;                   
     background-repeat:   no-repeat;
     background-position: center center;
 }
 #home_index {
-	background-color: white;
+	background-color: rgba(249, 255, 255, .85);
 	margin: 0 auto;
 	width: 90%;
 }

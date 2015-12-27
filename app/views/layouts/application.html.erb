@@ -9,24 +9,11 @@
 </head>
 <body>
   
-<div id="nav">
-  <div id="user_login">
-    <a href="/">Home</a>
-    <% if current_user %>
-      Signed in as <a href="/users/<%= current_user.id %>"><strong><%= current_user.name %></strong>!</a>
-      <%= image_tag(@auth['info']['image']) %>
-      <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    <% else %>
-      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-    <% end %>
-  </div>  
-</div>
+<%= render 'partials/navigation' %>
 
 <div id="wrapper">
   <%= yield %>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
 </div>
-
+<footer></footer>
 </body>
 </html>

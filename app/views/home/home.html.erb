@@ -1,10 +1,10 @@
 <div id="home_page">
 	<h1>Search Local Farmers Markets near you!</h1>
 	<div id="area_search">
-		<form action="/search" method="post">
+		<form class="form-inline" action="/search" method="post">
 		  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-		  <input type="text" name="search" placeholder="Enter zipcode here">
-		  <input type="submit">
+		  <input class="form-control" type="text" name="search" placeholder="Enter zipcode here">
+		  <button class="btn btn-success" type="submit">Submit</button>
 		</form>
 	</div>
 </div>

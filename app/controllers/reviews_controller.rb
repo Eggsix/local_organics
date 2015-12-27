@@ -6,6 +6,13 @@ class ReviewsController < ApplicationController
 		redirect_to market_path(params[:market_id])
 	end
 
+	def destroy 
+		market = Market.find(params[:market_id])
+		review = market.reviews.find(params[:id])
+		review.destroy
+		redirect_to market_path(params[:market_id])
+	end
+
 	private
 
 	def review_params

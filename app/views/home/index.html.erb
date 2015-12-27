@@ -6,30 +6,54 @@
 <script type="text/javascript">
     function initialize() {
 
+      //pins array
       var markers = [
           <% @market.each do |m| %>
             ["<%= m.name %>", <%= m.latitude%>, <%= m.longitude%>],
           <% end %>
       ];
+      // info window array
+      var infoWindowContent = [
+        <% @market.each do |m| %>
 
+        ['<div class="info_content">' +
+        '<h3><a href="/markets/<%= m.id %>"><%= m.name %></a></h3>' +
+        '<p><%= m.address %></p>' + '</div>'],
+        <% end %>
+        ];
+
+      //centers map based on zipcode geolocator
       var mapOptions = {
           center: new google.maps.LatLng(<%= @area[0] %>, <%= @area[1] %>),
-          zoom: 13
+          zoom: 12
       };
+
       var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-     
+      
+      var infoWindow = new google.maps.InfoWindow(), marker, i;
 
+      //sets markers for all locations
       for( i = 0; i < markers.length; i++ ) {
           var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
           var marker = new google.maps.Marker({
           position: position,
           map: map,
-          icon: i,
+          icon: "/assets/farmstand_icon.png",
           title: markers[i][0]
-          });
-         
+          });  
+
+          //adds info window for each location upon user click action
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              return function() {
+                  infoWindow.setContent(infoWindowContent[i][0]);
+                  infoWindow.open(map, marker);
+              }
+          })(marker, i));
       }
+
+      // centers map on users location
+
       marker.setMap(map); 
     }
     google.maps.event.addDomListener(window, 'load', initialize);
@@ -41,7 +65,7 @@
     <ul>
       <% @market.each do |market| %>
         <li>
-          <a href="/markets/<%= market.id %>"><%= market.name %></a>
+          <h3><a href="/markets/<%= market.id %>"><%= market.name %></a></h3>
           <p><%= market.address %></p>
           <p><%= market.schedule %></p>
         </li>

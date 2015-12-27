@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   get "/markets/:id" => 'markets#show'
 
   #users
-  get "users/:id" => "users#show"
-  patch "users/update/:id" => "users#update"
+  resources :users
+
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :markets do
