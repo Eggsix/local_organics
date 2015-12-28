@@ -1,5 +1,5 @@
 <div id="home_page">
-	<h1>Search Local Farmers Markets near you!</h1>
+	<h1>Search For Local Farmers Markets Near You!</h1>
 	<div id="area_search">
 		<form class="form-inline" action="/search" method="post">
 		  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -7,4 +7,5 @@
 		  <button class="btn btn-success" type="submit">Submit</button>
 		</form>
 	</div>
+	  <p class='zipcode_error'><%= flash[:errors] %><p>
 </div>

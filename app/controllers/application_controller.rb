@@ -5,8 +5,13 @@ class ApplicationController < ActionController::Base
 	before_action :set_auth
 
 	def set_zipcode
-		session[:zipcode] = params[:search]
-		redirect_to index_view_path
+		if is_numeric?(params[:search]) && params[:search].length == 5
+			session[:zipcode] = params[:search]
+			redirect_to index_view_path
+		else
+			flash[:errors] = "Please Enter a Valid Zipcode"
+			redirect_to "/"
+		end
 	end
 	
 	def current_user
@@ -16,7 +21,10 @@ class ApplicationController < ActionController::Base
 	helper_method :current_user
 	
 	private
-	
+	def is_numeric? string
+		true if Float(string) rescue false
+	end	
+
 	def set_auth
 		@auth = session[:omniauth] if session[:omniauth]
 	end	

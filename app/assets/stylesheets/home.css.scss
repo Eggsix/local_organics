@@ -19,6 +19,11 @@
 	background-size: cover;                   
     background-repeat:   no-repeat;
     background-position: center center;
+
+    .zipcode_error {
+	color: red;
+	margin-right: 75px;
+	}
 }
 #home_index {
 	background-color: rgba(249, 255, 255, .85);
