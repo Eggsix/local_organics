@@ -9,9 +9,7 @@
 		list-style: none;
 	}
 }
-#market_map {
-	display: inline-block;
-}
+
 #home_page {
 	height: 100%;
 	text-align:  center;
@@ -26,10 +24,23 @@
 	background-color: rgba(249, 255, 255, .85);
 	margin: 0 auto;
 	width: 90%;
+	#market_map {
+		display: inline-block;
+	}
 }
 #market_info {
 	background-color: white;
+	overflow: scroll;
 	h1 {
 		text-align: center
+	}
+	#market_details {
+		display: inline-block;
+		width: 30%;
+		margin-left: 40px;
+	}
+	#market_reviews {
+		display: inline-block;
+		margin-left: 40px;
 	}
 }

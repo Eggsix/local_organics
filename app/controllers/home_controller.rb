@@ -2,6 +2,7 @@ require 'json'
 require 'net/http' #to make a GET request
 require 'open-uri' #to fetch the data from the URL to then be parsed by JSON
 class HomeController < ApplicationController
+	
 	def home
 	end
 	
@@ -31,11 +32,4 @@ class HomeController < ApplicationController
 			end
 		end
 	end
-
-	def set_zipcode
-		session[:zipcode] = params[:search]
-		redirect_to index_view_path
-	end
-
-
 end

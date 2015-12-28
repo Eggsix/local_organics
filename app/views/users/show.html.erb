@@ -1,12 +1,19 @@
 <div id='user_profile'>
+	<%= link_to "<< back", index_view_path %>	
+
+	<% if current_user && current_user.id == @user.id %> 
 	<h1>Hello, <%= current_user.name %></h1>
-	<form action='/users/update/<%= current_user.id %>' method='post'>
-		<input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-		<p>Current Email
-		<input type='text' name='email' placeholder='<%= @user.email %>'></p>
-		Interests
-		<textarea id='user_interests' name='interests' placeholder='<%= @user.interest %>' cols='30' rows='5'></textarea>
-		<p><button>Submit Changes</button><p>
-		<input type='hidden' name='_method' value='patch'>
-	</form>
+	 	<div class="edit">
+			<%= simple_form_for @user do |f| %>
+				<%= f.input :email %>
+				<%= f.input :interest %>
+				<%= f.button :submit %>
+			<% end %>
+		</div>
+		<a href="#" class="edit_button">Edit</a>
+	<% else %>
+		<h1><%= @user.name %></h1>	
+	<% end %> 
+	<p><%= @user.interest %></p>
+	<p><%= @user.email %></p>
 </div>
