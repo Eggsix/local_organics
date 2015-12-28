@@ -46,6 +46,8 @@ gem 'spring',        group: :development
 gem 'rspec-rails'
 gem 'hirb'
 
+#for heroku deployment
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
