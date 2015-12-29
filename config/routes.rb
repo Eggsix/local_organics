@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   post '/search' => 'application#set_zipcode'
   #fb login
-  get '/auth/:provider/callback', to: 'sessions#create'
+  get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   
