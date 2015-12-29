@@ -16,9 +16,6 @@ Rails.application.routes.draw do
 
   #users
   resources :users
-
-  get 'signout', to: 'sessions#destroy', as: 'signout'
-
   resources :markets do
     resources :reviews
   end
