@@ -68,7 +68,7 @@
         <li>
           <h3><a href="/markets/<%= market.id %>"><%= market.name %></a></h3>
           <p><%= market.address %></p>
-          <p><%= market.schedule %></p>
+          <p><%= sanitize market.schedule %></p>
         </li>
       <% end %>
     </ul>
