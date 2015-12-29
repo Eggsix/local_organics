@@ -1,6 +1,6 @@
 
 <div id="market_info">
-	<%= link_to "<< back", index_view_path %>
+	<%= link_to "<< Back", index_view_path %>
 	<h1><%= @market.name %></h1>
 
 	<div id="market_details">	
@@ -9,7 +9,7 @@
 		,AK&key=AIzaSyCMxhjbHETbjWhuPiAXjq4vHsQQnyPrNy4" %>
 		<p><%= @market.address %></p>
 		<p><%= @market.products %></p>
-		<p><%= @market.schedule %></p>
+		<p><%= sanitize @market.schedule %></p>
 	</div>
 	<div id="market_reviews">
 		<ul>

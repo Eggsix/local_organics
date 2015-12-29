@@ -1,5 +1,5 @@
 <div id='user_profile'>
-	<%= link_to "<< back", index_view_path %>	
+	<%= link_to "<< Back", index_view_path %>	
 
 	<% if current_user && current_user.id == @user.id %> 
 	<h1>Hello, <%= current_user.name %></h1>
@@ -7,13 +7,13 @@
 			<%= simple_form_for @user do |f| %>
 				<%= f.input :email %>
 				<%= f.input :interest %>
-				<%= f.button :submit %>
+				<%= f.button :submit, {class:"btn btn-success"} %>
 			<% end %>
 		</div>
-		<a href="#" class="edit_button">Edit</a>
 	<% else %>
 		<h1><%= @user.name %></h1>	
 	<% end %> 
 	<p><%= @user.interest %></p>
 	<p><%= @user.email %></p>
+			<a href="#" class="edit_button">Edit Your Info!</a>
 </div>
