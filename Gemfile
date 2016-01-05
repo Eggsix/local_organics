@@ -65,4 +65,4 @@ gem 'devise'
 gem "mocha", group: :test
 
 gem 'figaro'
-
+gem 'omniauth-auth0'

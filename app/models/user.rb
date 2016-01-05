@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
 	ratyrate_rater
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
- 	devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
 
     # if we find the user with the credentials in our database, then we are going to return that user. If  # we are not able to find it, we are going to create the user
   	def self.sign_in_from_omniauth(auth)
@@ -13,7 +11,8 @@ class User < ActiveRecord::Base
 	end
 
 	def self.create_user_from_omniauth(auth)
-		fb_uid = auth['uid']
+		puts "create"
+		fb_uid = auth['uid'].slice!(9..25)
 		self.create(
 			provider: auth['provider'],
 			uid: auth['uid'],

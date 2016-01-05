@@ -9,7 +9,23 @@
       <%= image_tag(@auth['info']['image']) %>
       <%= link_to "Sign out", signout_path, id: "sign_out" %>
     <% else %>
-      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+<script src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
+<script type="text/javascript">
+  
+  var lock = new Auth0Lock('GnnpEsH73Ah77BOQTK754470qYwZftrE', 'steven5211.auth0.com');
+  
+  
+  function signin() {
+    lock.show({
+        callbackURL: 'http://localhost:3000/auth/auth0/callback'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid profile'
+      }
+    });
+  }
+</script>
+<button onclick="window.signin();">Login</button>
     <% end %>
   </div>  
 </div>
