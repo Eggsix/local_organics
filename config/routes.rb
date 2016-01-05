@@ -10,17 +10,15 @@ Rails.application.routes.draw do
 
   post '/search' => 'application#set_zipcode'
   #fb login
-  get "auth/:provider/callback", to: "sessions#create"
-  get "auth/failure", to: redirect("home#index")
+  get 'auth/facebook', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
   
   #markets 
   get "/markets/:id" => 'markets#show'
 
   #users
   resources :users
-
-  get 'signout', to: 'sessions#destroy', as: 'signout'
-
   resources :markets do
     resources :reviews
   end
