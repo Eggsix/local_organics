@@ -17,7 +17,7 @@
   
   function signin() {
     lock.show({
-        callbackURL: 'https://localorganics.herokuapp.com/auth/auth0/callback'
+        callbackURL: 'http://localhost:3000/auth/auth0/callback'
       , responseType: 'code'
       , authParams: {
         scope: 'openid profile'
